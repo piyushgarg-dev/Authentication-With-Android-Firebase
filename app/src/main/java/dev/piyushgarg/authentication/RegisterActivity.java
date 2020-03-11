@@ -45,7 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()){
-
+                                                Toast.makeText(getApplicationContext(),"Registration Complete",Toast.LENGTH_SHORT).show();
                                             }else{
                                                 Toast.makeText(getApplicationContext(),task.getException().toString(),Toast.LENGTH_SHORT).show();
                                             }
