@@ -1,17 +1,11 @@
 package dev.piyushgarg.authentication;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
-
-
 import com.google.android.gms.tasks.OnCompleteListener;
-
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
@@ -44,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
                              loggedInUser = user.getCurrentUser();
                              emailTextField.setText("");
                              passwordTextField.setText("");
-                              Snackbar.make(context,"Login Successful",Snackbar.LENGTH_SHORT).show();
+                              Snackbar.make(context,"Hello "+loggedInUser.getDisplayName(),Snackbar.LENGTH_SHORT).show();
                           }else{
                               System.out.println(task.getException());
-                              Snackbar.make(context,task.getException().toString(),Snackbar.LENGTH_SHORT).show();
+                              Snackbar.make(context,task.getException().getMessage().toString(),Snackbar.LENGTH_SHORT).show();
                           }
                         }
                     });

@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,8 +28,8 @@ public class RegisterActivity extends AppCompatActivity {
     public void signUpUser(View view){
         final View context = view;
         final EditText fullNameTextField = findViewById(R.id.fullNameTextField);
-        EditText emailTetField = findViewById(R.id.emailTextField);
-        EditText passwordTextField = findViewById(R.id.passwordTextField);
+        final EditText emailTetField = findViewById(R.id.emailTextField);
+        final EditText passwordTextField = findViewById(R.id.passwordTextField);
 
         auth.createUserWithEmailAndPassword(emailTetField.getText().toString(),passwordTextField.getText().toString())
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -48,6 +47,9 @@ public class RegisterActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()){
                                                 Snackbar.make(context,"Login Successful",Snackbar.LENGTH_SHORT).show();
+                                                emailTetField.setText("");
+                                                fullNameTextField.setText("");
+                                                passwordTextField.setText("");
                                             }else{
                                                 Snackbar.make(context,task.getException().toString(),Snackbar.LENGTH_SHORT).show();
                                             }
