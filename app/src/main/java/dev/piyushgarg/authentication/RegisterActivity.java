@@ -3,6 +3,7 @@ package dev.piyushgarg.authentication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -46,10 +47,13 @@ public class RegisterActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()){
-                                                Snackbar.make(context,"Login Successful",Snackbar.LENGTH_SHORT).show();
+                                                Snackbar.make(context,"Signed Up Successful",Snackbar.LENGTH_SHORT).show();
                                                 emailTetField.setText("");
                                                 fullNameTextField.setText("");
                                                 passwordTextField.setText("");
+                                                Intent mainActivity;
+                                                mainActivity = new Intent(RegisterActivity.this,MainActivity.class);
+                                                startActivity(mainActivity);
                                             }else{
                                                 Snackbar.make(context,task.getException().toString(),Snackbar.LENGTH_SHORT).show();
                                             }
