@@ -17,6 +17,7 @@
        app:layout_constraintTop_toTopOf="parent"
        app:srcCompat="@drawable/ic_auth" />
 
+
    <LinearLayout
        android:layout_width="430dp"
        android:layout_height="378dp"
@@ -39,6 +40,7 @@
          android:inputType="textEmailAddress"
           android:hint="Enter Email" />
 
+
       <EditText
           android:id="@+id/passwordTextField"
           android:layout_width="match_parent"
@@ -47,6 +49,7 @@
           android:layout_marginTop="10dp"
          android:inputType="textPassword"
           android:hint="Enter Password" />
+
 
       <Button
           android:layout_width="match_parent"

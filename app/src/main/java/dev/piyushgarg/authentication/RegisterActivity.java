@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,7 +26,8 @@ public class RegisterActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Register");
     }
 
-    public void signUpUser(View v){
+    public void signUpUser(View view){
+        final View context = view;
         final EditText fullNameTextField = findViewById(R.id.fullNameTextField);
         EditText emailTetField = findViewById(R.id.emailTextField);
         EditText passwordTextField = findViewById(R.id.passwordTextField);
@@ -45,15 +47,16 @@ public class RegisterActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()){
-                                                Toast.makeText(getApplicationContext(),"Registration Complete",Toast.LENGTH_SHORT).show();
+                                                Snackbar.make(context,"Login Successful",Snackbar.LENGTH_SHORT).show();
                                             }else{
-                                                Toast.makeText(getApplicationContext(),task.getException().toString(),Toast.LENGTH_SHORT).show();
+                                                Snackbar.make(context,task.getException().toString(),Snackbar.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
 
                         }else{
-                            Toast.makeText(getApplicationContext(),task.getException().toString(),Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getApplicationContext(),task.getException().toString(),Toast.LENGTH_SHORT).show();
+                            Snackbar.make(context,task.getException().toString(),Snackbar.LENGTH_SHORT).show();
                         }
                     }
                 });
