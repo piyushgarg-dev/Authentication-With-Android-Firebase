@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+   <ImageView
+       android:id="@+id/imageView3"
+       android:layout_width="206dp"
+       android:layout_height="220dp"
+       android:layout_marginTop="16dp"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:srcCompat="@drawable/ic_auth" />
+
+   <LinearLayout
+       android:layout_width="430dp"
+       android:layout_height="378dp"
+       android:layout_marginHorizontal="50dp"
+       android:layout_marginStart="16dp"
+       android:layout_marginEnd="16dp"
+       android:orientation="vertical"
+       android:padding="30dp"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/imageView3"
+       tools:ignore="MissingConstraints">
+
+      <EditText
+          android:id="@+id/emailTextField"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="40dp"
+          android:layout_marginTop="10dp"
+         android:inputType="textEmailAddress"
+          android:hint="Enter Email" />
+
+      <EditText
+          android:id="@+id/passwordTextField"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="40dp"
+          android:layout_marginTop="10dp"
+         android:inputType="textPassword"
+          android:hint="Enter Password" />
+
+      <Button
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="40dp"
+          android:layout_marginTop="20dp"
+          android:backgroundTint="@color/colorPrimary"
+          android:elevation="30dp"
+          android:onClick="signInUser"
+          android:padding="20dp"
+          android:text="Login"
+          android:textColor="#FFFFFF"
+          android:textSize="20dp" />
+
+
+      <Button
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="40dp"
+          android:layout_marginTop="20dp"
+          android:backgroundTint="#2C3335"
+          android:elevation="30dp"
+          android:onClick="redirectUserToRegisterPage"
+          android:padding="20dp"
+          android:text="Sign Up"
+          android:textColor="#FFFFFF"
+          android:textSize="20dp" />
+
+
+   </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
